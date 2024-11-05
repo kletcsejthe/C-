@@ -1,59 +1,57 @@
-#include <iostream>
-#include <cmath> 
+#include<iostream>
+
 using namespace std;
 
-int main() 
-{
-    int a, b;
-    cout << "Ilk Numaryi Gir:";
-    cin >> a; 
-    cout << "Ikinci Numarayi Gir: ";
-    cin >> b; 
-
-    char operation;
-    cout << "Yapmak Istediginiz Islemi Secin [*, +, -, /, r,]: ";
-    cin >> operation; 
-
-    float result; 
-    switch (operation) {
-        case '+':   
-            result = a + b;
-            cout << "Sonuc: " << result << endl;
-            break; 
-
-        case '^':
-            result = pow(a, b);
-            cout << "Sonuc: " << result << endl;
-            break;
-        
-        case 'r':
-            result =  sqrt(a);
-            cout << "Sonuc: " << result << endl;
-            break;
-
-        case '-':
-            result = a - b;
-            cout << "Sonuc: " << result << endl;
-            break; 
-
-        case '/':
-            if (b != 0) { 
-                result = static_cast<float>(a) / b; 
-                cout << "Sonuc: " << result << endl;
-            } else {
-                cout << "0 A BOLME ISLEMI YOKTUR!" << endl; 
-            }
-            break; 
-
-        case '*':
-            result = a * b; 
-            cout << "Sonuc: " << result << endl;
-            break; 
-            
-        default:
-            cout << "Yanlis Secim!" << endl; 
-            break; 
-    }
-
-    return 0; 
+int main() {
+	
+	int M, N, K;
+	cin >> M >> N >> K ;
+	
+	int arr1[M][N], arr2[N][K] ;
+	
+	for( int i = 0 ; i < M ; i ++ ) {
+		for( int j = 0 ; j < N ; j ++ ) {
+			cin >> arr1[i][j] ;
+			
+		}		
+	}
+	
+	cout << endl << "first is done\n" ;
+	
+	for( int i = 0 ; i < N ; i ++ ) {
+		for( int j = 0 ; j < K ; j ++ ) {
+			cin >> arr2[i][j] ;
+			
+		}		
+	}
+	
+	int arr3[M][K] ;
+	
+	for( int i = 0 ; i < M ; i ++ ) {
+		for( int j = 0 ; j < K ; j ++ ) {
+			
+			arr3[i][j] = 0 ;
+			
+			for( int m = 0 ; m < N ; m ++ )	{
+				
+				arr3[i][j] += arr1[i][m]*arr2[m][j] ;
+				
+				
+			}
+		}
+	}
+	
+	cout << endl << endl ;
+	
+	for( int i = 0 ; i < M ; i ++ ) {
+		for( int j = 0 ; j < K ; j ++ ) {
+			
+		cout << arr3[i][j] << " " ;	
+			
+		}
+		
+		cout << endl ;
+	}
+	
+	
 }
